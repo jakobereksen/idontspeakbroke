@@ -15,6 +15,7 @@
 		7BC75D2C22106F0800C6A064 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC75D2B22106F0800C6A064 /* Model.swift */; };
 		7BC75D2E22107AAD00C6A064 /* FirebaseAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC75D2D22107AAD00C6A064 /* FirebaseAdapter.swift */; };
 		7BC75D302210C9CF00C6A064 /* EnterUsernameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC75D2F2210C9CF00C6A064 /* EnterUsernameViewController.swift */; };
+		7BC75D93221375A100C6A064 /* IDontSpeakBrokeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC75D92221375A100C6A064 /* IDontSpeakBrokeViewController.swift */; };
 		7BE900E72210582500ACD64F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7BE900E62210582500ACD64F /* GoogleService-Info.plist */; };
 		B70E9D6F3CB1DE2F6CF2117E /* Pods_idontspeakbroke.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7806B34B636E9FBB35351E58 /* Pods_idontspeakbroke.framework */; };
 /* End PBXBuildFile section */
@@ -32,6 +33,7 @@
 		7BC75D2B22106F0800C6A064 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		7BC75D2D22107AAD00C6A064 /* FirebaseAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAdapter.swift; sourceTree = "<group>"; };
 		7BC75D2F2210C9CF00C6A064 /* EnterUsernameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterUsernameViewController.swift; sourceTree = "<group>"; };
+		7BC75D92221375A100C6A064 /* IDontSpeakBrokeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDontSpeakBrokeViewController.swift; sourceTree = "<group>"; };
 		7BE900E62210582500ACD64F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E4CB1ED4B72546FDC2739F87 /* Pods-idontspeakbroke.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-idontspeakbroke.debug.xcconfig"; path = "Pods/Target Support Files/Pods-idontspeakbroke/Pods-idontspeakbroke.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -88,6 +90,7 @@
 				7BC75D2B22106F0800C6A064 /* Model.swift */,
 				7BC75D2D22107AAD00C6A064 /* FirebaseAdapter.swift */,
 				7BC75D2F2210C9CF00C6A064 /* EnterUsernameViewController.swift */,
+				7BC75D92221375A100C6A064 /* IDontSpeakBrokeViewController.swift */,
 			);
 			path = idontspeakbroke;
 			sourceTree = "<group>";
@@ -244,6 +247,7 @@
 			files = (
 				7B5A68D321EBD9F50062AD82 /* AppDelegate.swift in Sources */,
 				7BC75D2E22107AAD00C6A064 /* FirebaseAdapter.swift in Sources */,
+				7BC75D93221375A100C6A064 /* IDontSpeakBrokeViewController.swift in Sources */,
 				7B73E05F21EC00CD009AC464 /* MessageViewController.swift in Sources */,
 				7B73E05D21EBFCBB009AC464 /* NavigationController.swift in Sources */,
 				7BC75D2C22106F0800C6A064 /* Model.swift in Sources */,
@@ -386,15 +390,17 @@
 			baseConfigurationReference = E4CB1ED4B72546FDC2739F87 /* Pods-idontspeakbroke.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 9VENT5YE3P;
+				DEVELOPMENT_TEAM = A3HBY6U597;
 				INFOPLIST_FILE = idontspeakbroke/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.jakobsen.idontspeakbroke;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jakobereksen.idontspeakbroke;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -405,15 +411,17 @@
 			baseConfigurationReference = 5EFBE15A7CBB817E4D4F5129 /* Pods-idontspeakbroke.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 9VENT5YE3P;
+				DEVELOPMENT_TEAM = A3HBY6U597;
 				INFOPLIST_FILE = idontspeakbroke/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.jakobsen.idontspeakbroke;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jakobereksen.idontspeakbroke;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

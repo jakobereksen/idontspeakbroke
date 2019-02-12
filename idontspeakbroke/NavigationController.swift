@@ -8,23 +8,42 @@
 
 import UIKit
 import AVKit
+import MessageKit
+import Foundation
 
 class NavigationController: UINavigationController {
     
     private let session = AVAudioSession.sharedInstance()
+    private var showingIDontSpeakBrokeScreen = false
+    private let iDontSpeakBrokeScreen = IDontSpeakBrokeViewController()
+    
+    private var hasAirPods2 = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+         self.isNavigationBarHidden = true;
         try! session.setCategory(.playAndRecord, mode: .default, options: .allowBluetooth)
-        
-        if(hasAirPods() || true) {
-            //let welcomeScreen = MessageViewController()
-            let welcomeScreen = EnterUsernameViewController()
-            self.pushViewController(welcomeScreen, animated: false)
-            self.isNavigationBarHidden = true;
+        Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: self.handleIntervalBlock)
+        Timer.scheduledTimer(withTimeInterval: 4, repeats: false) { (timer) in
+            self.hasAirPods2 = true
+        }
+    }
+    
+    public func pushMessageViewController(withSender sender: Sender) {
+        self.pushViewController(MessageViewController(user: sender), animated: false)
+    }
+    
+    private func handleIntervalBlock(timer: Timer) {
+        if(self.hasAirPods()) {
+            let screen = EnterUsernameViewController()
             
-        } else {
+            iDontSpeakBrokeScreen.startTransition(completion: {_ in
+                self.pushViewController(screen, animated: false)
+            })
+            timer.invalidate()
+        } else if(!showingIDontSpeakBrokeScreen) {
+            showingIDontSpeakBrokeScreen = true
+            self.pushViewController(iDontSpeakBrokeScreen, animated: false)
         }
     }
     
@@ -39,16 +58,4 @@ class NavigationController: UINavigationController {
         }
         return false;
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
