@@ -15,23 +15,6 @@ class EnterUsernameViewController: UIViewController {
     private let inputContainerView = UIView(frame: .zero)
     private var keyboardPlaceholderViewHeightConstraint = NSLayoutConstraint()
     
-    let userNameLabel: UILabel = {
-        let label = UILabel()
-        label.textColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
-        label.font = UIFont.systemFont(ofSize: 40.0, weight: .regular)
-        label.textAlignment = .center
-        return label
-    }()
-    
-    let welcomeLabel: UILabel = {
-        let label = UILabel()
-        label.textColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
-        label.text = "welcome"
-        label.font = UIFont.systemFont(ofSize: 40.0, weight: .regular)
-        label.textAlignment = .center
-        return label
-    }()
-    
     private let userNameInput: UITextField = {
         let userNameInput = UITextField(frame: .zero)
         userNameInput.translatesAutoresizingMaskIntoConstraints = false
@@ -57,6 +40,15 @@ class EnterUsernameViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
         
         layoutUserNameInput()
+        
+        self.userNameInput.transform = CGAffineTransform(translationX: 0, y: -30)
+        self.userNameInput.layer.opacity = 0
+        
+        UIView.animate(withDuration: 0.3, animations: {
+            UIView.setAnimationCurve(.easeInOut)
+            self.userNameInput.transform = CGAffineTransform(translationX: 0, y: 0)
+            self.userNameInput.layer.opacity = 1
+        })
     }
     
     @objc private func dismissKeyboard (_ sender: UITapGestureRecognizer) {
@@ -80,54 +72,17 @@ class EnterUsernameViewController: UIViewController {
     }
     
     private func startTransition(withDisplayName displayName: String) {
-        userNameInput.removeFromSuperview()
-        userNameLabel.text = displayName
         let sender = fireBaseAdapter.createNewSender(forDisplayName: displayName)
        
-        let labelContainer = UIStackView(arrangedSubviews: [welcomeLabel, userNameLabel])
-        labelContainer.axis = .vertical
-        labelContainer.alignment = .center
-        inputContainerView.addSubview(labelContainer)
-        
-        labelContainer.translatesAutoresizingMaskIntoConstraints = false
-        labelContainer.centerXAnchor.constraint(equalTo: inputContainerView.centerXAnchor).isActive = true
-        labelContainer.centerYAnchor.constraint(equalTo: inputContainerView.centerYAnchor).isActive = true
-        labelContainer.widthAnchor.constraint(equalTo: inputContainerView.widthAnchor, constant: -30).isActive = true
-        startAnimationFlow {_ in
+        UIView.animate(withDuration: 0.3, animations: {
+            UIView.setAnimationCurve(.easeInOut)
+            self.userNameInput.transform = CGAffineTransform(translationX: 0, y: 30)
+            self.userNameInput.layer.opacity = 0
+        }, completion: {(successful: Bool) -> Void in
+            self.userNameInput.removeFromSuperview()
             guard let navigationController  = self.navigationController as? NavigationController else { return  }
             navigationController.pushMessageViewController(withSender: sender)
-        }
-    }
-    
-    private func startAnimationFlow(completion: @escaping (Bool) -> Void) {
-        welcomeLabel.transform = CGAffineTransform(translationX: 0, y: -30)
-        welcomeLabel.layer.opacity = 0
-        userNameLabel.transform = CGAffineTransform(translationX: 0, y: -30)
-        userNameLabel.layer.opacity = 0
-        
-        UIView.animateKeyframes(withDuration: 5, delay: 0, options: .calculationModeCubic, animations: {
-            
-            UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 0.3 / 5, animations: {
-                UIView.setAnimationCurve(.easeInOut)
-                self.welcomeLabel.transform = CGAffineTransform(translationX: 0, y: 0)
-                self.welcomeLabel.layer.opacity = 1
-            })
-            UIView.addKeyframe(withRelativeStartTime: 0.3 / 5, relativeDuration: 0.3 / 5, animations: {
-                UIView.setAnimationCurve(.easeInOut)
-                self.userNameLabel.transform = CGAffineTransform(translationX: 0, y: 0)
-                self.userNameLabel.layer.opacity = 1
-            })
-            UIView.addKeyframe(withRelativeStartTime: 4 / 5, relativeDuration: 0.3 / 5, animations: {
-                UIView.setAnimationCurve(.easeInOut)
-                self.userNameLabel.transform = CGAffineTransform(translationX: 0, y: 30)
-                self.userNameLabel.layer.opacity = 0
-            })
-            UIView.addKeyframe(withRelativeStartTime: 4.3 / 5, relativeDuration: 0.3 / 5, animations: {
-                UIView.setAnimationCurve(.easeInOut)
-                self.welcomeLabel.transform = CGAffineTransform(translationX: 0, y: 30)
-                self.welcomeLabel.layer.opacity = 0
-            })
-        }, completion: completion)
+        })
     }
     
     private func layoutUserNameInput() {
