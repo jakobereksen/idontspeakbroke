@@ -55,6 +55,6 @@ class NavigationController: UINavigationController {
                 return true
             }
         }
-        return false;
+        return false
     }
 }

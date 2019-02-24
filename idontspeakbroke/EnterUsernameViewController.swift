@@ -20,7 +20,7 @@ class EnterUsernameViewController: UIViewController {
         userNameInput.translatesAutoresizingMaskIntoConstraints = false
         userNameInput.textColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
         userNameInput.placeholder = "enter username..."
-        userNameInput.font = UIFont.systemFont(ofSize: 40.0, weight: .regular)
+        userNameInput.font = UIFont.systemFont(ofSize: 35.0, weight: .regular)
         userNameInput.textAlignment = .center
         userNameInput.returnKeyType = .done
         userNameInput.enablesReturnKeyAutomatically = true
@@ -45,7 +45,7 @@ class EnterUsernameViewController: UIViewController {
         self.userNameInput.layer.opacity = 0
         
         UIView.animate(withDuration: 0.3, animations: {
-            UIView.setAnimationCurve(.easeInOut)
+            UIView.setAnimationCurve(.easeOut)
             self.userNameInput.transform = CGAffineTransform(translationX: 0, y: 0)
             self.userNameInput.layer.opacity = 1
         })
@@ -75,7 +75,7 @@ class EnterUsernameViewController: UIViewController {
         let sender = fireBaseAdapter.createNewSender(forDisplayName: displayName)
        
         UIView.animate(withDuration: 0.3, animations: {
-            UIView.setAnimationCurve(.easeInOut)
+            UIView.setAnimationCurve(.easeOut)
             self.userNameInput.transform = CGAffineTransform(translationX: 0, y: 30)
             self.userNameInput.layer.opacity = 0
         }, completion: {(successful: Bool) -> Void in

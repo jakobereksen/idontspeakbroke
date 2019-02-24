@@ -16,7 +16,7 @@ class IDontSpeakBrokeViewController: UIViewController {
     private let entryDeniedLabel: UILabel = {
         let label = UILabel()
         label.textColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
-        label.font = UIFont.systemFont(ofSize: 40, weight: .regular)
+        label.font = UIFont.systemFont(ofSize: 35, weight: .regular)
         label.numberOfLines = 2
         label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -27,7 +27,7 @@ class IDontSpeakBrokeViewController: UIViewController {
     private let entryAllowedLabel: UILabel = {
         let label = UILabel()
         label.textColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
-        label.font = UIFont.systemFont(ofSize: 40, weight: .regular)
+        label.font = UIFont.systemFont(ofSize: 35, weight: .regular)
         label.numberOfLines = 1
         label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -62,8 +62,9 @@ class IDontSpeakBrokeViewController: UIViewController {
         self.entryDeniedLabel.transform = CGAffineTransform(translationX: 0, y: -30)
         self.entryDeniedLabel.layer.opacity = 0
         
-        UIView.animate(withDuration: 0.3, animations: {
-            UIView.setAnimationCurve(.easeInOut)
+        
+        UIView.animate(withDuration: 0.3, delay: 0.3, animations: {
+            UIView.setAnimationCurve(.easeOut)
             self.entryDeniedLabel.transform = CGAffineTransform(translationX: 0, y: 0)
             self.entryDeniedLabel.layer.opacity = 1
         }, completion: {(successful: Bool) -> Void in completion?()})
@@ -71,7 +72,7 @@ class IDontSpeakBrokeViewController: UIViewController {
     
     private func hideEntryDeniedLabel(completion: (() -> Void)?) {
         UIView.animate(withDuration: 0.3, animations: {
-            UIView.setAnimationCurve(.easeInOut)
+            UIView.setAnimationCurve(.easeOut)
             self.entryDeniedLabel.transform = CGAffineTransform(translationX: 0, y: 30)
             self.entryDeniedLabel.layer.opacity = 0
         }, completion: {(successful: Bool) -> Void in
@@ -90,12 +91,12 @@ class IDontSpeakBrokeViewController: UIViewController {
         
         UIView.animateKeyframes(withDuration: 3, delay: 0, options: .calculationModeCubic, animations: {
             UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 0.3 / 3, animations: {
-                UIView.setAnimationCurve(.easeInOut)
+                UIView.setAnimationCurve(.easeOut)
                 self.entryAllowedLabel.transform = CGAffineTransform(translationX: 0, y: 0)
                 self.entryAllowedLabel.layer.opacity = 1
             })
             UIView.addKeyframe(withRelativeStartTime: 2.5 / 3, relativeDuration: 0.3 / 3, animations: {
-                UIView.setAnimationCurve(.easeInOut)
+                UIView.setAnimationCurve(.easeOut)
                 self.entryAllowedLabel.transform = CGAffineTransform(translationX: 0, y: 30)
                 self.entryAllowedLabel.layer.opacity = 0
             })
