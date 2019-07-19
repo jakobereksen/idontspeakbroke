@@ -12,13 +12,13 @@ import MessageKit
 import Foundation
 
 class NavigationController: UINavigationController {
-    
     private let session = AVAudioSession.sharedInstance()
     private let iDontSpeakBrokeScreen = IDontSpeakBrokeViewController()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-         self.isNavigationBarHidden = true;
+        self.isNavigationBarHidden = true;
+        self.interactivePopGestureRecognizer?.isEnabled = false
         try! session.setCategory(.playAndRecord, mode: .default, options: .allowBluetooth)
         
         self.pushViewController(iDontSpeakBrokeScreen, animated: false)

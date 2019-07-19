@@ -9,7 +9,7 @@
 import UIKit
 
 let I_DONT_SPEAK_BROKE_TEXT = "Sorry,\nI don't speak broke."
-let WELCOME_TEXT = "Nice headphones!"
+let WELCOME_TEXT = "Nice headphones! 🔥"
 
 class IDontSpeakBrokeViewController: UIViewController {
     

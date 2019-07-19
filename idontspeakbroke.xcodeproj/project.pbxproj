@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7B3D0075222C38CE0044FD72 /* TitleBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B3D0074222C38CE0044FD72 /* TitleBarView.swift */; };
 		7B5A68D321EBD9F50062AD82 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5A68D221EBD9F50062AD82 /* AppDelegate.swift */; };
 		7B5A68DA21EBD9F60062AD82 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7B5A68D921EBD9F60062AD82 /* Assets.xcassets */; };
 		7B5A68DD21EBD9F60062AD82 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B5A68DB21EBD9F60062AD82 /* LaunchScreen.storyboard */; };
@@ -23,6 +24,7 @@
 /* Begin PBXFileReference section */
 		5EFBE15A7CBB817E4D4F5129 /* Pods-idontspeakbroke.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-idontspeakbroke.release.xcconfig"; path = "Pods/Target Support Files/Pods-idontspeakbroke/Pods-idontspeakbroke.release.xcconfig"; sourceTree = "<group>"; };
 		7806B34B636E9FBB35351E58 /* Pods_idontspeakbroke.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_idontspeakbroke.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7B3D0074222C38CE0044FD72 /* TitleBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleBarView.swift; sourceTree = "<group>"; };
 		7B5A68CF21EBD9F50062AD82 /* idontspeakbroke.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = idontspeakbroke.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B5A68D221EBD9F50062AD82 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7B5A68D921EBD9F60062AD82 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -91,6 +93,7 @@
 				7BC75D2D22107AAD00C6A064 /* FirebaseAdapter.swift */,
 				7BC75D2F2210C9CF00C6A064 /* EnterUsernameViewController.swift */,
 				7BC75D92221375A100C6A064 /* IDontSpeakBrokeViewController.swift */,
+				7B3D0074222C38CE0044FD72 /* TitleBarView.swift */,
 			);
 			path = idontspeakbroke;
 			sourceTree = "<group>";
@@ -180,7 +183,7 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-idontspeakbroke/Pods-idontspeakbroke-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-idontspeakbroke/Pods-idontspeakbroke-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/BoringSSL/openssl.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/MessageInputBar/MessageInputBar.framework",
@@ -213,7 +216,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-idontspeakbroke/Pods-idontspeakbroke-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-idontspeakbroke/Pods-idontspeakbroke-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		8802AEE20BC026880844294F /* [CP] Check Pods Manifest.lock */ = {
@@ -250,6 +253,7 @@
 				7BC75D93221375A100C6A064 /* IDontSpeakBrokeViewController.swift in Sources */,
 				7B73E05F21EC00CD009AC464 /* MessageViewController.swift in Sources */,
 				7B73E05D21EBFCBB009AC464 /* NavigationController.swift in Sources */,
+				7B3D0075222C38CE0044FD72 /* TitleBarView.swift in Sources */,
 				7BC75D2C22106F0800C6A064 /* Model.swift in Sources */,
 				7BC75D302210C9CF00C6A064 /* EnterUsernameViewController.swift in Sources */,
 			);

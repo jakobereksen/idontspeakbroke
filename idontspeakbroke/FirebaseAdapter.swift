@@ -12,10 +12,13 @@ import MessageKit
 struct FirebaseAdapter {
     private let messageCollectionReference: CollectionReference
     private let userCollectionReference: CollectionReference
+    private let activeUserCollectionReference: CollectionReference
     
     func createNewSender(forDisplayName displayName: String) -> Sender {
         let data = ["displayName": displayName]
         let documentReference = userCollectionReference.addDocument(data: data)
+       userCollectionReference.addDocument(data: data)
+        
         let sender = Sender(id: documentReference.documentID, displayName: displayName)
         return sender
     }
@@ -70,6 +73,7 @@ struct FirebaseAdapter {
         let db = Firestore.firestore()
         messageCollectionReference = db.collection("/messages")
         userCollectionReference = db.collection("/user")
+        activeUserCollectionReference = db.collection("/activeUser")
         db.settings.areTimestampsInSnapshotsEnabled = true
     }
 }
