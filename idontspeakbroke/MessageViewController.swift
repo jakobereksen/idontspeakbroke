@@ -13,7 +13,7 @@ import MessageInputBar
 class MessageViewController: MessagesViewController {
     private let sender: Sender
     private var messages: [Message] = []
-    private let titleBar = TitleBarView(title: "Welcome!")
+    private let titleBar = TitleBarView(title: "spoiled kids 💰")
     
     init(user: Sender) {
         sender = user
@@ -84,14 +84,16 @@ class MessageViewController: MessagesViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        print(messages)
         fireBaseAdapter.addNewMessageHandler(appendMessage)
     }
     
     private func appendMessage(_ message: Message) {
         messages.append(message)
-        messages.sort { (firstMessage, secondMessage) -> Bool in
-            return firstMessage.sentDate.compare(secondMessage.sentDate) == .orderedAscending
-        }
+        print(message.kind)
+//        messages.sort { (firstMessage, secondMessage) -> Bool in
+//            return firstMessage.sentDate.compare(secondMessage.sentDate) == .orderedAscending
+//        }
         self.messagesCollectionView.reloadData()
         if(messages.count > 1) {
             self.messagesCollectionView.reloadItems(at: [IndexPath(row: 0, section: messages.count - 2)])

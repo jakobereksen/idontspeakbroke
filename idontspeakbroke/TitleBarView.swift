@@ -13,7 +13,7 @@ class TitleBarView: UIView {
     let titleView: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = UIFont.systemFont(ofSize: 20, weight: .regular)
+        label.font = UIFont.systemFont(ofSize: 17, weight: .medium)
         return label
     }()
     

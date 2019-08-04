@@ -12,12 +12,10 @@ import MessageKit
 struct FirebaseAdapter {
     private let messageCollectionReference: CollectionReference
     private let userCollectionReference: CollectionReference
-    private let activeUserCollectionReference: CollectionReference
     
     func createNewSender(forDisplayName displayName: String) -> Sender {
         let data = ["displayName": displayName]
         let documentReference = userCollectionReference.addDocument(data: data)
-       userCollectionReference.addDocument(data: data)
         
         let sender = Sender(id: documentReference.documentID, displayName: displayName)
         return sender
@@ -43,7 +41,7 @@ struct FirebaseAdapter {
     }
     
     func addNewMessageHandler(_ changeHandler: @escaping (_ message: Message) -> Void) {
-        messageCollectionReference.addSnapshotListener { querySnapshot, error in
+        messageCollectionReference.order(by: "created", descending: false).addSnapshotListener { querySnapshot, error in
             guard let snapshot = querySnapshot else {
                 print("Error listening for message updates: \(error?.localizedDescription ?? "No error")")
                 return
@@ -71,9 +69,10 @@ struct FirebaseAdapter {
     init() {
         FirebaseApp.configure()
         let db = Firestore.firestore()
+        let settings = db.settings
+        settings.areTimestampsInSnapshotsEnabled = true
+        db.settings = settings
         messageCollectionReference = db.collection("/messages")
         userCollectionReference = db.collection("/user")
-        activeUserCollectionReference = db.collection("/activeUser")
-        db.settings.areTimestampsInSnapshotsEnabled = true
     }
 }
