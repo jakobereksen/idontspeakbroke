@@ -8,4 +8,4 @@ I liked the idea and wanted to do an iOS app.
 
 ![alt text](./appstore.jpeg 'App Store Guideline Violation')
 
-Can't blame them. You can check it out on TestFlight tough: https://testflight.apple.com/join/JOlYguFr
+Can't blame them. You can check it out on TestFlight though: https://testflight.apple.com/join/JOlYguFr
